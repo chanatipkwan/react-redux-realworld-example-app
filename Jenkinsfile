@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'mrts/docker-python-nodejs-google-chrome'
+            image 'node:lts-buster-slim'
             args '-p 3000:3000'
         }
     }
@@ -9,7 +9,7 @@ pipeline {
         HOME="."
     }
     stages {
-        stage("Install dependeicies") {
+        stage("Install dependencies") {
             steps {
                 sh 'npm install'
                 sh 'npm rebuild'
